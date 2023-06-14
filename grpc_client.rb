@@ -1,23 +1,23 @@
 require "grpc"
 require "json"
 
-def traverse_dir(file_path)
-  if File.directory? file_path
-    Dir.foreach(file_path){|file| traverse_dir(file_path+"/"+file) if file!="." and file!=".." }
-  else
-    load file_path if file_path.to_s.match(/\.rb$/)
-  end
-end
+# def traverse_dir(file_path)
+#   if File.directory? file_path
+#     Dir.foreach(file_path){|file| traverse_dir(file_path+"/"+file) if file!="." and file!=".." }
+#   else
+#     load file_path if file_path.to_s.match(/\.rb$/)
+#   end
+# end
 
-PWD = File.expand_path("..", __FILE__)
+# PWD = File.expand_path("..", __FILE__)
 
-# puts PWD
+# # puts PWD
 
-traverse_dir(PWD+'/lib/entity/stream_message_code_pb.rb')
-traverse_dir(PWD+'/lib/entity/result_pb.rb')
-traverse_dir(PWD+'/lib/entity/stream_message_pb.rb')
-traverse_dir(PWD+'/lib/entity/stream_message_data_task_pb.rb')
-traverse_dir(PWD+'/lib/client')
+# traverse_dir(PWD+'/lib/entity/stream_message_code_pb.rb')
+# traverse_dir(PWD+'/lib/entity/result_pb.rb')
+# traverse_dir(PWD+'/lib/entity/stream_message_pb.rb')
+# traverse_dir(PWD+'/lib/entity/stream_message_data_task_pb.rb')
+# traverse_dir(PWD+'/lib/client')
 
 
 def main
@@ -25,7 +25,7 @@ def main
   port = ENV["CRAWLAB_GRPC_ADDRESS_PORT"]
   address = ENV["CRAWLAB_GRPC_ADDRESS"]
   if address==nil || address == ""
-    address = "104.237.144.78:9666"
+    address = "localhost:9666"
   end  
 
   auth = "Crawlab2021!"
