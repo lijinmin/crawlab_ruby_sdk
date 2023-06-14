@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "entity/result.proto";
+
+package grpc;
+option go_package = ".;grpc";
+
+message StreamMessageDataTask {
+  string task_id = 1;
+  repeated Result  data = 2;
+}

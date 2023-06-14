@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package grpc;
+option go_package = ".;grpc";
+
+message Result {
+  string _tid = 1;
+  string name = 2;
+  string age = 3;
+}
